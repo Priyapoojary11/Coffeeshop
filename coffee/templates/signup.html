@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="secondary-body">
+
+    <div class="form-container">
+        <div class="form-content"><br><br>
+            <h2 style="text-align: center">Sign Up</h2>
+                <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br><label-secondary for="username">User Name</label-secondary>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <!-- First name Field -->
+                <div class="form-group">
+                    <br><label-secondary for="first_name">First Name</label-secondary>
+                    <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                </div>
+
+                <!-- Last name Field -->
+                <div class="form-group">
+                    <br><label-secondary for="last_name">Last Name</label-secondary>
+                    <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
+                </div>
+
+                <!-- Contact Field -->
+                <div class="form-group">
+                    <label-secondary  for="mobile_number">Contact Number</label-secondary >
+                    <input type="text" id="mobile_number" name="mobile_number" placeholder="Enter your contact number" required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label-secondary  for="email">Email</label-secondary >
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label-secondary for="password1">Password</label-secondary>
+                    <input type="password" id="password1" name="password1" placeholder="Create a password">
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label-secondary for="password2">Confirm Password</label-secondary>
+                    <input type="password" id="password2" name="password2" placeholder="Confirm your password">
+                </div>
+
+                <!-- Submit Button -->
+                <br><button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+
+            {% if form_errors %}
+                <div class="alert alert-danger" style="color: red;">
+                    <ul>
+                        {% for field, errors in form_errors.items %}
+                            <li>{{ field }}: {{ errors }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+
+            <br><p>Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+        </div>
+    </div> 
+    <script>
+        function myFunction(event) {
+            const password1 = document.getElementById('password1').value;
+            const password2 = document.getElementById('password2').value;
+    
+            if (password1 !== password2) {
+                alert("Passwords do not match. Please try again.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+            alert("The form was submitted successfully");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

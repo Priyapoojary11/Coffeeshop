@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Payment</title>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<div class="secondary-body">
+    <a href="{% url 'home' %}" style="position: absolute; top: 10px; left: 10px; font-size: 16px; color: black;"><i class="fas fa-home"></i> Home</a>
+<div class="form-container">
+    <h2>Secure Payment</h2>
+    <p>Please enter your payment details below.</p>
+
+    <div class="form-content">
+        <form action="#" method="POST">
+            {% csrf_token %}
+
+            <!-- Card Information -->
+            <div class="form-group">
+                <label-secondary for="card-number">Card Number</label-secondary>
+                <input type="text" id="card-number" name="card-number" placeholder="Enter card number" required>
+            </div>
+
+            <div class="form-group">
+                <label-secondary for="card-name">Cardholder Name</label-secondary>
+                <input type="text" id="card-name" name="card-name" placeholder="Enter cardholder name" required>
+            </div>
+
+            <div class="form-group">
+                <label-secondary for="expiry-date">Expiry Date</label-secondary>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            </div>
+
+            <div class="form-group">
+                <label-secondary for="cvv">CVV</label-secondary>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required>
+            </div>
+
+            <!-- Billing Information -->
+            <h3>Billing Information</h3>
+
+            <div class="form-group">
+                <label-secondary for="address">Billing Address</label-secondary>
+                <input type="text" id="address" name="address" placeholder="Enter your billing address" required>
+            </div>
+
+            <div class="form-group">
+                <label-secondary for="city">City</label-secondary>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+            </div>
+
+            <div class="form-group">
+                <label-secondary for="postal-code">Postal Code</label-secondary>
+                <input type="text" id="postal-code" name="postal-code" placeholder="Enter your postal code" required>
+            </div>
+
+            <!-- Payment Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Pay Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

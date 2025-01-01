@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body class="secondary-body">
+    <div class="form-container">
+        <div class="form-content">
+            <h2 style="text-align: center">Login</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Username Field -->
+                <div class="form-group">
+                    <br><label-secondary for="username">Username</label-secondary>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>  
+
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label-secondary for="password">Password</label-secondary>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div><br>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Log In</button><br>
+            </form>
+
+
+            <br><p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+        </div>
+    </div> 
+    <script>
+        {% if alert_message %}
+        alert("{{ alert_message }}");
+        {% endif %}
+    </script>
+
+</body>
+</html>

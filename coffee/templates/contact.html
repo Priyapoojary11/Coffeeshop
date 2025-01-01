@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="secondary-body" style="background-color: #ccc">
+    <div class="form-container">
+        <h2 style="text-align: center">Contact Us</h2>
+        <div class="form-content">
+            <form action="#" method="post"  onsubmit="myFunction()">
+                {% csrf_token %}
+                
+                <p style="text-align: center">Get in touch with us for any inquiries.</p><br>
+                <div class="form-group">
+                    <label-secondary for="username">User Name</label-secondary>
+                    <input type="text" id="username" name="username" placeholder="Your user name.." required>
+                </div>
+
+                <div class="form-group">
+                    <label-secondary for="email">Email ID</label-secondary>
+                    <input type="text" id="email" name="email" placeholder="Your email id.." required>
+                </div>
+
+                <div class="form-group">
+                    <label-secondary for="phone">Phone No</label-secondary>
+                    <input type="text" id="phone" name="phone" placeholder="Your phone no.." required>
+                </div>
+
+                <div class="form-group">
+                    <label-secondary for="country">Country</label-secondary>
+                    <select id="country" placeholder="Select your country.." required>
+                        <option value="" placeholder="Select your country.."></option>
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">India</option>
+                        <option value="usa">USA</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            <script>
+                function myFunction(){
+                    alert("The form was submitted successfully");
+                }
+            </script>
+        </div>
+    </div>
+</div> 
+{% endblock %}
