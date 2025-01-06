@@ -19,11 +19,11 @@
     <p>Please enter your payment details below.</p>
 
     <div class="form-content">
-        <form action="#" method="POST">
+        <form action="#" method="post" onsubmit="myFunction()">
             {% csrf_token %}
 
             <!-- Card Information -->
-            <div class="form-group">
+            <div class = "form-group">
                 <label-secondary for="card-number">Card Number</label-secondary>
                 <input type="text" id="card-number" name="card-number" placeholder="Enter card number" required>
             </div>
@@ -66,6 +66,11 @@
                 <button type="submit" class="submit-btn">Pay Now</button>
             </div>
         </form>
+        <script>
+            function myFunction(){
+                alert("Payment successfully done.Click ok to placed your order!");
+            }
+        </script>
     </div>
 </div>
 </div>
