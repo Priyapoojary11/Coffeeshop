@@ -2,10 +2,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import pytest
 # from selenium.webdriver.common.action_chains import ActionChains
 import time
 import re
 
+# @pytest.mark.skip(reason="Skipping this test for now")
 def test_profile_update(browser):
     browser.get("http://127.0.0.1:8000/profile/")
 
@@ -67,9 +69,6 @@ def test_add_to_cart(browser):
     add_to_cart_button = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[normalize-space()='Add to cart']")))
     add_to_cart_button.click()
     time.sleep(2)
-    
-    # cart_count = browser.find_element(By.CSS_SELECTOR, "span.cart-count").text
-    # assert int(cart_count) > 0  # Expecting at least 1 item in the cart
     
     proceed_to_checkout_button = WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH,"//a[normalize-space()='Proceed to Checkout']")))
     proceed_to_checkout_button.click()

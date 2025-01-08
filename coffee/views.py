@@ -227,7 +227,6 @@ def payment(request, order_id):
 
     return render(request, 'payment.html', {'order': order})
 
-
 @login_required
 def checkout1(request):
     cart = request.session.get('cart', {})
